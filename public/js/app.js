@@ -19555,7 +19555,7 @@ __webpack_require__.r(__webpack_exports__);
     update: function update(e) {
       e.preventDefault();
       axios__WEBPACK_IMPORTED_MODULE_0___default().put("http://localhost:8000/api/user/".concat(this.edit.id)).then(function (res) {
-        console.log(res.data);
+        alert(res.data.message);
       });
     },
     userdelete: function userdelete(id) {

@@ -750,7 +750,7 @@ export default {
             axios
                 .put(`http://localhost:8000/api/user/${this.edit.id}`)
                 .then((res) => {
-                    console.log(res.data);
+                     alert(res.data.message)
                 });
         },
         userdelete(id) {
