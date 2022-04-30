@@ -525,9 +525,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-3 {
   margin-bottom: 0.75rem;
 }
-.inline-block {
-  display: inline-block;
-}
 .flex {
   display: flex;
 }
@@ -578,9 +575,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-1\/6 {
   width: 16.666667%;
-}
-.w-32 {
-  width: 8rem;
 }
 .w-2\/5 {
   width: 40%;
@@ -672,14 +666,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-red-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
-}
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
-.bg-green-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
 .bg-gray-400 {
   --tw-bg-opacity: 1;

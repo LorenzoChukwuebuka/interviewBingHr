@@ -243,10 +243,13 @@
                         <div
                             class="w-1/6 text-sm flex justify-center items-center"
                         >
-                            CEO and Founder
+                            {{ user.status }}
                         </div>
                         <div
                             class="w-2/6 text-sm flex justify-center items-center opacity-50"
+                            @click="
+                                (toggleupdate = !toggleupdate), startEdit(user)
+                            "
                         >
                             <i
                                 class="fa fa-pen-to-square fa-2x cursor-pointer"
@@ -310,7 +313,7 @@
                         <div class="flex w-full pt-4">
                             <div class="w-full md:w-1/3">
                                 <input
-                                    type="text"
+                                    type="email"
                                     v-model="form.email"
                                     class="w-full border rounded p-1"
                                     placeholder="Email ID*"
@@ -328,12 +331,13 @@
                             <div class="md:w-1/3 pl-3 flex items-center">
                                 <select
                                     class="w-full border p-1 rounded opacity-50"
-                                    v-model="form.role"
+                                    v-model="form.status"
                                 >
-                                    <option>Select Role type</option>
-                                    <option>Super Admin</option>
+                                    <option>Select Status</option>
+                                    <option>CEO and Founder</option>
                                     <option>Admin</option>
                                     <option>Employee</option>
+                                    <option>Hr Admin</option>
                                 </select>
                             </div>
                         </div>
@@ -393,14 +397,26 @@
                             <!-- FIRST ONE -->
                             <div class="px-4 py-6 flex text-black w-full flex">
                                 <div class="w-2/5 font-bold flex items-center">
-                                    <div class="flex opacity-50">
-                                        Super Admin
+                                    <div
+                                        class="md:w-1/3 pl-3 flex items-center"
+                                    >
+                                        <select
+                                            class="w-full border p-1 rounded opacity-50"
+                                            v-model="form.role"
+                                        >
+                                            <option>Select Role</option>
+                                            <option>Super Admin</option>
+                                            <option>Admin</option>
+                                            <option>Employee</option>
+                                            <option>Hr Admin</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div
                                     class="w-1/5 text-sm flex justify-center items-center"
                                 >
                                     <input
+                                        v-model="form.permission"
                                         value="read"
                                         type="checkbox"
                                         class="cursor-pointer"
@@ -410,6 +426,7 @@
                                     class="w-1/5 text-sm flex justify-center items-center"
                                 >
                                     <input
+                                        v-model="form.permission"
                                         value="write"
                                         type="checkbox"
                                         class="cursor-pointer"
@@ -419,110 +436,13 @@
                                     class="w-1/5 text-sm flex justify-center items-center"
                                 >
                                     <input
+                                        v-model="form.permission"
                                         value="delete"
                                         type="checkbox"
                                         class="cursor-pointer"
                                     />
                                 </div>
                             </div>
-                            <hr />
-
-                            <!--SECOND ONE -->
-                            <div class="px-4 py-6 flex text-black w-full flex">
-                                <div class="w-2/5 font-bold flex items-center">
-                                    <input type="text" hidden :value="admin" />
-                                    <div class="flex opacity-50">Admin</div>
-                                </div>
-                                <div
-                                    class="w-1/5 text-sm flex justify-center items-center"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="cursor-pointer"
-                                    />
-                                </div>
-                                <div
-                                    class="w-1/5 text-sm flex justify-center items-center"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="cursor-pointer"
-                                    />
-                                </div>
-                                <div
-                                    class="w-1/5 text-sm flex justify-center items-center"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="cursor-pointer"
-                                    />
-                                </div>
-                            </div>
-                            <hr />
-
-                            <!-- THIRD ONE -->
-                            <div class="px-4 py-6 flex text-black w-full flex">
-                                <div class="w-2/5 font-bold flex items-center">
-                                    <div class="flex opacity-50">Employee</div>
-                                </div>
-                                <div
-                                    class="w-1/5 text-sm flex justify-center items-center"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="cursor-pointer"
-                                    />
-                                </div>
-                                <div
-                                    class="w-1/5 text-sm flex justify-center items-center"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="cursor-pointer"
-                                    />
-                                </div>
-                                <div
-                                    class="w-1/5 text-sm flex justify-center items-center"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="cursor-pointer"
-                                    />
-                                </div>
-                            </div>
-                            <hr />
-
-                            <!-- FOURTH ONE -->
-                            <div class="px-4 py-6 flex text-black w-full flex">
-                                <div class="w-2/5 font-bold flex items-center">
-                                    <div class="flex opacity-50">HR Admin</div>
-                                </div>
-                                <div
-                                    class="w-1/5 text-sm flex justify-center items-center"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="cursor-pointer"
-                                    />
-                                </div>
-                                <div
-                                    class="w-1/5 text-sm flex justify-center items-center"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="cursor-pointer"
-                                    />
-                                </div>
-                                <div
-                                    class="w-1/5 text-sm flex justify-center items-center"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="cursor-pointer"
-                                    />
-                                </div>
-                            </div>
-                            -->
                             <hr />
                         </div>
                         <div class="flex justify-end pt-8 space-x-5">
@@ -544,6 +464,207 @@
                 </div>
             </div>
         </div>
+
+        <!--update  Modal -->
+
+         <div class="p-24 relative z-99 w-full" id="modalOpen" v-if="toggleupdate">
+            <div class="bg-white mx-24 h-full flex-wrap rounded-lg p-4">
+                <div class="text-xl flex w-full">
+                    <div class="w-1/2 flex">Add User</div>
+                    <div class="w-1/2 flex justify-end">
+                        <button
+                            class="font-bold px-3"
+                            @click="toggleupdate = !toggleupdate"
+                        >
+                            X
+                        </button>
+                    </div>
+                </div>
+                <div class="form pt-6">
+                    <form>
+                        <div>
+                            <input
+                                type="text"
+                                v-model="edit.employee_id"
+                                class="w-full border rounded p-1"
+                                placeholder="Employee ID*"
+                            />
+                        </div>
+
+                        <div class="flex w-full pt-4">
+                            <div class="w-full md:w-1/2">
+                                <input
+                                    type="text"
+                                    v-model="edit.first_name"
+                                    class="w-full border rounded p-1"
+                                    placeholder="First Name*"
+                                />
+                            </div>
+                            <div class="md:w-1/2 pl-3">
+                                <input
+                                    type="text"
+                                    v-model="edit.last_name"
+                                    class="w-full border rounded p-1"
+                                    placeholder="Last  Name*"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="flex w-full pt-4">
+                            <div class="w-full md:w-1/3">
+                                <input
+                                    type="email"
+                                    v-model="edit.email"
+                                    class="w-full border rounded p-1"
+                                    placeholder="Email ID*"
+                                />
+                            </div>
+                            <div class="md:w-1/3 pl-3">
+                                <input
+                                    type="text"
+                                    v-model="edit.mobile_number"
+                                    class="w-full border rounded p-1"
+                                    placeholder="Mobile No*"
+                                />
+                            </div>
+
+                            <div class="md:w-1/3 pl-3 flex items-center">
+                                <select
+                                    class="w-full border p-1 rounded opacity-50"
+                                    v-model="edit.status"
+                                >
+                                    <option>Select Status</option>
+                                    <option>CEO and Founder</option>
+                                    <option>Admin</option>
+                                    <option>Employee</option>
+                                    <option>Hr Admin</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="flex w-full pt-4">
+                            <div class="w-full md:w-1/3">
+                                <input
+                                    type="text"
+                                    v-model="edit.username"
+                                    class="w-full border rounded p-1"
+                                    placeholder="Username*"
+                                />
+                            </div>
+                            <div class="md:w-1/3 pl-3">
+                                <input
+                                    type="password"
+                                    v-model="edit.password"
+                                    class="w-full border rounded p-1"
+                                    placeholder="Password*"
+                                />
+                            </div>
+
+                            <div class="md:w-1/3 pl-3 flex items-center">
+                                <input
+                                    type="password"
+                                    v-model="edit.confirm_pass"
+                                    class="w-full border rounded p-1"
+                                    placeholder="Confirm Password*"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="mt-8 w-full flex-wrap">
+                            <div
+                                class="px-4 py-6 flex text-black w-full mt-2 bg-gray-200 flex"
+                            >
+                                <div class="w-2/5 font-bold opacity-50">
+                                    Name
+                                </div>
+                                <div
+                                    class="w-1/5 font-bold opacity-50 flex justify-center"
+                                >
+                                    Read
+                                </div>
+                                <div
+                                    class="w-1/5 font-bold opacity-50 flex justify-center"
+                                >
+                                    Write
+                                </div>
+                                <div
+                                    class="w-1/5 font-bold opacity-50 flex justify-center"
+                                >
+                                    Delete
+                                </div>
+                            </div>
+
+                            <!-- FIRST ONE -->
+                            <div class="px-4 py-6 flex text-black w-full flex">
+                                <div class="w-2/5 font-bold flex items-center">
+                                    <div
+                                        class="md:w-1/3 pl-3 flex items-center"
+                                    >
+                                        <select
+                                            class="w-full border p-1 rounded opacity-50"
+                                            v-model="edit.role"
+                                        >
+                                            <option>Select Role</option>
+                                            <option>Super Admin</option>
+                                            <option>Admin</option>
+                                            <option>Employee</option>
+                                            <option>Hr Admin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-1/5 text-sm flex justify-center items-center"
+                                >
+                                    <input
+                                        v-model="edit.permission"
+                                        value="read"
+                                        type="checkbox"
+                                        class="cursor-pointer"
+                                    />
+                                </div>
+                                <div
+                                    class="w-1/5 text-sm flex justify-center items-center"
+                                >
+                                    <input
+                                        v-model="edit.permission"
+                                        value="write"
+                                        type="checkbox"
+                                        class="cursor-pointer"
+                                    />
+                                </div>
+                                <div
+                                    class="w-1/5 text-sm flex justify-center items-center"
+                                >
+                                    <input
+                                        v-model="edit.permission"
+                                        value="delete"
+                                        type="checkbox"
+                                        class="cursor-pointer"
+                                    />
+                                </div>
+                            </div>
+                            <hr />
+                        </div>
+                        <div class="flex justify-end pt-8 space-x-5">
+                            <button
+                                type="submit"
+                                class="p-2 bg-blue-400 rounded-lg text-white"
+                                @click="create"
+                            >
+                                Add User
+                            </button>
+                            <div
+                                @click="toggle = !toggle"
+                                class="p-2 bg-gray-400 rounded-lg text-white cursor-pointer"
+                            >
+                                Cancel
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </main>
 </template>
 <script>
@@ -554,6 +675,7 @@ export default {
         return {
             title: "hello",
             toggle: false,
+            toggleupdate: false,
 
             form: {
                 employee_id: "",
@@ -564,13 +686,25 @@ export default {
                 mobile_number: "",
                 role: "",
                 password: "",
+                status: "",
                 confirm_pass: "",
                 permission: [],
             },
-            super_admin: "super admin",
-            admin: "Admin",
-            Hr_admin: "Hr Admin",
-            employee: "employee",
+            edit: {
+                id: "",
+                employee_id: "",
+                first_name: "",
+                last_name: "",
+                username: "",
+                email: "",
+                mobile_number: "",
+                role: "",
+                password: "",
+                confirm_pass: "",
+                status: "",
+                permission: [],
+            },
+            edited: null,
             users: [],
         };
     },
@@ -587,6 +721,7 @@ export default {
         },
         create(e) {
             e.preventDefault();
+            console.log(this.form);
             if (this.validate() === true) {
                 axios
                     .post("http://localhost:8000/api/user", this.form)
@@ -594,9 +729,13 @@ export default {
                         if (res.data.message == "created successfully") {
                             alert(res.data.message);
                         }
+
+                        setInterval(() => {
+                            location.reload();
+                        }, 2000);
                     })
                     .catch((err) => {
-                        console.log(err);
+                        alert(err);
                     });
             }
         },
@@ -605,13 +744,35 @@ export default {
                 this.users = res.data;
             });
         },
-        startEdit() {},
+        startEdit(user) {
+            this.edited = user;
+            this.edit.id = this.edited.id;
+            this.edit.employee_id = this.edited.employee_id;
+            this.edit.first_name = this.edited.first_name;
+            this.edit.last_name = this.edit.last_name;
+            this.edit.username = this.edited.username;
+            this.edit.email = this.edited.email;
+            this.edit.mobile_number = this.edited.mobile_number;
+            this.edit.role = this.edited.role;
+            this.edit.password = this.edited.password;
+            this.edit.status = this.edited.status;
+            this.edit.permission = this.edited.permission;
+        },
         update(id) {
-            axios.put();
+            axios.put(`http://localhost:8000/api/user/${this.edit.id}`)
+            .then(res=>{
+                console.log(res.data)
+            })
         },
         userdelete(id) {
-            console.log(id)
-            //axios.delete(`http://localhost:8000/api/user/${id}`);
+            if (confirm("Do you want to delete this user? ") == true) {
+                console.log(id);
+                axios
+                    .delete(`http://localhost:8000/api/user/${id}`)
+                    .then((res) => {
+                        alert(res.data.Message);
+                    });
+            }
         },
     },
 };

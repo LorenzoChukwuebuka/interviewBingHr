@@ -20,7 +20,7 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'employee_id'=> 'max:255',
+            'employee_id' => 'max:255',
             'first_name' => 'max:255',
             'last_name' => ' max:255',
             'username' => 'unique:users',
@@ -28,6 +28,7 @@ class UserController extends Controller
             'mobile_number' => '',
             'role' => 'max:255',
             'password' => 'required|min:5',
+            'status' => 'max:255',
 
         ]);
 
@@ -68,19 +69,24 @@ class UserController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
+            'employee_id' => 'max:255',
             'first_name' => 'max:255',
             'last_name' => ' max:255',
             'username' => 'unique:users',
             'email' => 'email|unique:users',
             'mobile_number' => '',
             'role' => 'max:255',
+            'password' => 'required|min:5',
+            'status' => 'max:255',
 
         ]);
 
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()->first()], 401);
         }
-        $user = User::find($id);
+        $user = User::find($id)->update($request->all());
+
+        return \response(["message" => "User updated"]);
 
     }
 
