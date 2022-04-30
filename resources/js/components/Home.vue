@@ -151,11 +151,7 @@
                     <div class="right">
                         <button
                             class="bg-green-800 p-3 rounded text-white"
-                            @click="
-                                document.getElementById(
-                                    'modalOpen'
-                                ).style.display = 'inline-block'
-                            "
+                            @click="toggle = !toggle"
                         >
                             Add Users
                         </button>
@@ -215,7 +211,7 @@
                         <div class="w-2/6 font-bold flex items-center w-6/6">
                             <div class="flex w-1/2">
                                 <img
-                                    src="wordpress.png"
+                                    src="https://www.istockphoto.com/photo/male-lion-resting-on-a-rock-gm1333977253-416278970"
                                     class="w-8 rounded-full"
                                 />
                                 <div class="flex-wrap pl-2">
@@ -317,7 +313,7 @@
                         <div class="w-2/6 font-bold flex items-center w-6/6">
                             <div class="flex w-1/2">
                                 <img
-                                    src="wordpress.png"
+                                    src="https://www.istockphoto.com/photo/male-lion-resting-on-a-rock-gm1333977253-416278970"
                                     class="w-8 rounded-full"
                                 />
                                 <div class="flex-wrap pl-2">
@@ -467,16 +463,15 @@
 
         <!-- Modal -->
 
-        <div
-            class="hidden p-24 relative z-99 w-full"
-            id="modalOpen"
-            ref="modalOpen"
-        >
+        <div class="p-24 relative z-99 w-full" id="modalOpen" v-if="toggle">
             <div class="bg-white mx-24 h-full flex-wrap rounded-lg p-4">
                 <div class="text-xl flex w-full">
                     <div class="w-1/2 flex">Add User</div>
                     <div class="w-1/2 flex justify-end">
-                        <button class="font-bold px-3" onclick="{closeModal()}">
+                        <button
+                            class="font-bold px-3"
+                            @click="toggle = !toggle"
+                        >
                             X
                         </button>
                     </div>
@@ -485,8 +480,8 @@
                     <form>
                         <div>
                             <input
-                                type=""
-                                name=""
+                                type="text"
+                                v-model="form.employee_id"
                                 class="w-full border rounded p-1"
                                 placeholder="Employee ID*"
                             />
@@ -495,16 +490,16 @@
                         <div class="flex w-full pt-4">
                             <div class="w-full md:w-1/2">
                                 <input
-                                    type=""
-                                    name=""
+                                    type="text"
+                                    v-model="form.first_name"
                                     class="w-full border rounded p-1"
                                     placeholder="First Name*"
                                 />
                             </div>
                             <div class="md:w-1/2 pl-3">
                                 <input
-                                    type=""
-                                    name=""
+                                    type="text"
+                                    v-model="form.last_name"
                                     class="w-full border rounded p-1"
                                     placeholder="Last  Name*"
                                 />
@@ -514,8 +509,8 @@
                         <div class="flex w-full pt-4">
                             <div class="w-full md:w-1/3">
                                 <input
-                                    type=""
-                                    name=""
+                                    type="text"
+                                    v-model="form.email"
                                     class="w-full border rounded p-1"
                                     placeholder="Email ID*"
                                 />
@@ -532,6 +527,7 @@
                             <div class="md:w-1/3 pl-3 flex items-center">
                                 <select
                                     class="w-full border p-1 rounded opacity-50"
+                                    v-model="form.role"
                                 >
                                     <option>Select Role type</option>
                                     <option>Role type 1</option>
@@ -747,11 +743,12 @@
                             <button
                                 type="submit"
                                 class="p-2 bg-blue-400 rounded-lg text-white"
+                                @click="create"
                             >
                                 Add User
                             </button>
                             <div
-                                onclick="{closeModal()}"
+                                @click="toggle = !toggle"
                                 class="p-2 bg-gray-400 rounded-lg text-white cursor-pointer"
                             >
                                 Cancel
@@ -770,16 +767,29 @@ export default {
     data() {
         return {
             title: "hello",
+            toggle: false,
 
-            form: {},
+            form: {
+                employee_id: "",
+                first_name: "",
+                last_name: "",
+                username: "",
+                email: "",
+                mobile_number: "",
+                role: "",
+                password: "",
+                permission:[]
+            },
         };
     },
     mounted() {
         this.read();
     },
     methods: {
-        create() {
-            axios.post();
+        create(e) {
+            e.preventDefault()
+            console.log(this.form);
+            // axios.post();
         },
         read() {
             axios.get("http://localhost:8000/api/user").then((res) => {

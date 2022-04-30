@@ -20,6 +20,7 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'employee_id'=> 'max:255',
             'first_name' => 'max:255',
             'last_name' => ' max:255',
             'username' => 'unique:users',
