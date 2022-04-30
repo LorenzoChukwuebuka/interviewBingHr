@@ -19552,7 +19552,8 @@ __webpack_require__.r(__webpack_exports__);
       this.edit.status = this.edited.status;
       this.edit.permission = this.edited.permission;
     },
-    update: function update(id) {
+    update: function update(e) {
+      e.preventDefault();
       axios__WEBPACK_IMPORTED_MODULE_0___default().put("http://localhost:8000/api/user/".concat(this.edit.id)).then(function (res) {
         console.log(res.data);
       });
@@ -19561,7 +19562,7 @@ __webpack_require__.r(__webpack_exports__);
       if (confirm("Do you want to delete this user? ") == true) {
         console.log(id);
         axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("http://localhost:8000/api/user/".concat(id)).then(function (res) {
-          alert(res.data.Message);
+          alert(res.data.message);
         });
       }
     }
@@ -19642,7 +19643,7 @@ var _hoisted_14 = {
 };
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "https://www.istockphoto.com/photo/male-lion-resting-on-a-rock-gm1333977253-416278970",
+  src: "https://en.wikipedia.org/wiki/Image#/media/File:Pencil_drawing_of_a_girl_in_ecstasy.jpg",
   "class": "w-8 rounded-full"
 }, null, -1
 /* HOISTED */
@@ -19890,63 +19891,57 @@ var _hoisted_86 = {
   "class": "w-full md:w-1/3"
 };
 var _hoisted_87 = {
-  "class": "md:w-1/3 pl-3"
-};
-var _hoisted_88 = {
-  "class": "md:w-1/3 pl-3 flex items-center"
-};
-var _hoisted_89 = {
   "class": "mt-8 w-full flex-wrap"
 };
 
-var _hoisted_90 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"px-4 py-6 flex text-black w-full mt-2 bg-gray-200 flex\"><div class=\"w-2/5 font-bold opacity-50\"> Name </div><div class=\"w-1/5 font-bold opacity-50 flex justify-center\"> Read </div><div class=\"w-1/5 font-bold opacity-50 flex justify-center\"> Write </div><div class=\"w-1/5 font-bold opacity-50 flex justify-center\"> Delete </div></div>", 1);
+var _hoisted_88 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"px-4 py-6 flex text-black w-full mt-2 bg-gray-200 flex\"><div class=\"w-2/5 font-bold opacity-50\"> Name </div><div class=\"w-1/5 font-bold opacity-50 flex justify-center\"> Read </div><div class=\"w-1/5 font-bold opacity-50 flex justify-center\"> Write </div><div class=\"w-1/5 font-bold opacity-50 flex justify-center\"> Delete </div></div>", 1);
 
-var _hoisted_91 = {
+var _hoisted_89 = {
   "class": "px-4 py-6 flex text-black w-full flex"
 };
-var _hoisted_92 = {
+var _hoisted_90 = {
   "class": "w-2/5 font-bold flex items-center"
 };
-var _hoisted_93 = {
+var _hoisted_91 = {
   "class": "md:w-1/3 pl-3 flex items-center"
 };
 
-var _hoisted_94 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Select Role", -1
+var _hoisted_92 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Select Role", -1
 /* HOISTED */
 );
 
-var _hoisted_95 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Super Admin", -1
+var _hoisted_93 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Super Admin", -1
 /* HOISTED */
 );
 
-var _hoisted_96 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Admin", -1
+var _hoisted_94 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Admin", -1
 /* HOISTED */
 );
 
-var _hoisted_97 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Employee", -1
+var _hoisted_95 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Employee", -1
 /* HOISTED */
 );
 
-var _hoisted_98 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Hr Admin", -1
+var _hoisted_96 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Hr Admin", -1
 /* HOISTED */
 );
 
-var _hoisted_99 = [_hoisted_94, _hoisted_95, _hoisted_96, _hoisted_97, _hoisted_98];
+var _hoisted_97 = [_hoisted_92, _hoisted_93, _hoisted_94, _hoisted_95, _hoisted_96];
+var _hoisted_98 = {
+  "class": "w-1/5 text-sm flex justify-center items-center"
+};
+var _hoisted_99 = {
+  "class": "w-1/5 text-sm flex justify-center items-center"
+};
 var _hoisted_100 = {
   "class": "w-1/5 text-sm flex justify-center items-center"
 };
-var _hoisted_101 = {
-  "class": "w-1/5 text-sm flex justify-center items-center"
-};
-var _hoisted_102 = {
-  "class": "w-1/5 text-sm flex justify-center items-center"
-};
 
-var _hoisted_103 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1
+var _hoisted_101 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1
 /* HOISTED */
 );
 
-var _hoisted_104 = {
+var _hoisted_102 = {
   "class": "flex justify-end pt-8 space-x-5"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -20183,33 +20178,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Username*"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.edit.username]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_87, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "password",
-    "onUpdate:modelValue": _cache[25] || (_cache[25] = function ($event) {
-      return $data.edit.password = $event;
-    }),
-    "class": "w-full border rounded p-1",
-    placeholder: "Password*"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.edit.password]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_88, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "password",
-    "onUpdate:modelValue": _cache[26] || (_cache[26] = function ($event) {
-      return $data.edit.confirm_pass = $event;
-    }),
-    "class": "w-full border rounded p-1",
-    placeholder: "Confirm Password*"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.edit.confirm_pass]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_89, [_hoisted_90, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" FIRST ONE "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_91, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_92, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_93, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.edit.username]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_87, [_hoisted_88, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" FIRST ONE "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_89, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_90, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_91, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "class": "w-full border p-1 rounded opacity-50",
-    "onUpdate:modelValue": _cache[27] || (_cache[27] = function ($event) {
+    "onUpdate:modelValue": _cache[25] || (_cache[25] = function ($event) {
       return $data.edit.role = $event;
     })
-  }, _hoisted_99, 512
+  }, _hoisted_97, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.edit.role]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_100, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[28] || (_cache[28] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.edit.role]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_98, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[26] || (_cache[26] = function ($event) {
       return $data.edit.permission = $event;
     }),
     value: "read",
@@ -20217,8 +20194,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "cursor-pointer"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.edit.permission]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_101, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[29] || (_cache[29] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.edit.permission]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_99, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[27] || (_cache[27] = function ($event) {
       return $data.edit.permission = $event;
     }),
     value: "write",
@@ -20226,8 +20203,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "cursor-pointer"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.edit.permission]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_102, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[30] || (_cache[30] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.edit.permission]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_100, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[28] || (_cache[28] = function ($event) {
       return $data.edit.permission = $event;
     }),
     value: "delete",
@@ -20235,15 +20212,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "cursor-pointer"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.edit.permission]])])]), _hoisted_103]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_104, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.edit.permission]])])]), _hoisted_101]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_102, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
     "class": "p-2 bg-blue-400 rounded-lg text-white",
-    onClick: _cache[31] || (_cache[31] = function () {
-      return $options.create && $options.create.apply($options, arguments);
+    onClick: _cache[29] || (_cache[29] = function () {
+      return $options.update && $options.update.apply($options, arguments);
     })
-  }, " Add User "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    onClick: _cache[32] || (_cache[32] = function ($event) {
-      return $data.toggle = !$data.toggle;
+  }, " Edit User "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    onClick: _cache[30] || (_cache[30] = function ($event) {
+      return $data.toggleupdate = !$data.toggleupdate;
     }),
     "class": "p-2 bg-gray-400 rounded-lg text-white cursor-pointer"
   }, " Cancel ")])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);

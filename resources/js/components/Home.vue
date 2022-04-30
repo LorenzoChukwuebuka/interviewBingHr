@@ -213,7 +213,7 @@
                         <div class="w-2/6 font-bold flex items-center w-6/6">
                             <div class="flex w-1/2">
                                 <img
-                                    src="https://www.istockphoto.com/photo/male-lion-resting-on-a-rock-gm1333977253-416278970"
+                                    src="https://en.wikipedia.org/wiki/Image#/media/File:Pencil_drawing_of_a_girl_in_ecstasy.jpg"
                                     class="w-8 rounded-full"
                                 />
                                 <div class="flex-wrap pl-2">
@@ -467,7 +467,11 @@
 
         <!--update  Modal -->
 
-         <div class="p-24 relative z-99 w-full" id="modalOpen" v-if="toggleupdate">
+        <div
+            class="p-24 relative z-99 w-full"
+            id="modalOpen"
+            v-if="toggleupdate"
+        >
             <div class="bg-white mx-24 h-full flex-wrap rounded-lg p-4">
                 <div class="text-xl flex w-full">
                     <div class="w-1/2 flex">Add User</div>
@@ -551,23 +555,7 @@
                                     placeholder="Username*"
                                 />
                             </div>
-                            <div class="md:w-1/3 pl-3">
-                                <input
-                                    type="password"
-                                    v-model="edit.password"
-                                    class="w-full border rounded p-1"
-                                    placeholder="Password*"
-                                />
-                            </div>
-
-                            <div class="md:w-1/3 pl-3 flex items-center">
-                                <input
-                                    type="password"
-                                    v-model="edit.confirm_pass"
-                                    class="w-full border rounded p-1"
-                                    placeholder="Confirm Password*"
-                                />
-                            </div>
+                             
                         </div>
 
                         <div class="mt-8 w-full flex-wrap">
@@ -649,12 +637,12 @@
                             <button
                                 type="submit"
                                 class="p-2 bg-blue-400 rounded-lg text-white"
-                                @click="create"
+                                @click="update"
                             >
-                                Add User
+                                Edit User
                             </button>
                             <div
-                                @click="toggle = !toggle"
+                                @click="toggleupdate = !toggleupdate"
                                 class="p-2 bg-gray-400 rounded-lg text-white cursor-pointer"
                             >
                                 Cancel
@@ -664,7 +652,6 @@
                 </div>
             </div>
         </div>
-
     </main>
 </template>
 <script>
@@ -758,11 +745,13 @@ export default {
             this.edit.status = this.edited.status;
             this.edit.permission = this.edited.permission;
         },
-        update(id) {
-            axios.put(`http://localhost:8000/api/user/${this.edit.id}`)
-            .then(res=>{
-                console.log(res.data)
-            })
+        update(e) {
+            e.preventDefault()
+            axios
+                .put(`http://localhost:8000/api/user/${this.edit.id}`)
+                .then((res) => {
+                    console.log(res.data);
+                });
         },
         userdelete(id) {
             if (confirm("Do you want to delete this user? ") == true) {
@@ -770,7 +759,7 @@ export default {
                 axios
                     .delete(`http://localhost:8000/api/user/${id}`)
                     .then((res) => {
-                        alert(res.data.Message);
+                        alert(res.data.message);
                     });
             }
         },

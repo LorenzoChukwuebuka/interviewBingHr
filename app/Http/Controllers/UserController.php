@@ -65,7 +65,7 @@ class UserController extends Controller
         return \response($user);
     }
 
-    public function update($id)
+    public function update($id,Request $request)
     {
 
         $validator = Validator::make($request->all(), [
@@ -76,7 +76,6 @@ class UserController extends Controller
             'email' => 'email|unique:users',
             'mobile_number' => '',
             'role' => 'max:255',
-            'password' => 'required|min:5',
             'status' => 'max:255',
 
         ]);
@@ -85,6 +84,7 @@ class UserController extends Controller
             return response()->json(['error' => $validator->errors()->first()], 401);
         }
         $user = User::find($id)->update($request->all());
+     
 
         return \response(["message" => "User updated"]);
 
