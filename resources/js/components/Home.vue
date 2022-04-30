@@ -206,7 +206,9 @@
                     <!-- FIRST ONE -->
                     <div
                         class="px-4 py-6 flex text-black w-full flex"
-                        id="deleteOne"
+                        v-for="(user, index) in users"
+                        :key="index"
+                        :value="user.id"
                     >
                         <div class="w-2/6 font-bold flex items-center w-6/6">
                             <div class="flex w-1/2">
@@ -215,9 +217,12 @@
                                     class="w-8 rounded-full"
                                 />
                                 <div class="flex-wrap pl-2">
-                                    <div>David Wagner</div>
+                                    <div>
+                                        {{ user.first_name }}
+                                        {{ user.last_name }}
+                                    </div>
                                     <div class="text-xs opacity-50">
-                                        email@emil.com
+                                        {{ user.email }}
                                     </div>
                                 </div>
                             </div>
@@ -226,14 +231,14 @@
                                 <div
                                     class="bg-red-700 px-4 w-33 text-center py-1 rounded-lg text-white font-normal"
                                 >
-                                    Super Admin
+                                    {{ user.role }}
                                 </div>
                             </div>
                         </div>
                         <div
                             class="w-1/6 text-sm flex justify-center items-center"
                         >
-                            24, Oct, 2015
+                            {{ user.created_at }}
                         </div>
                         <div
                             class="w-1/6 text-sm flex justify-center items-center"
@@ -246,211 +251,7 @@
                             <i
                                 class="fa fa-pen-to-square fa-2x cursor-pointer"
                             ></i>
-                            <button onclick="{deleteOne()}">
-                                <i
-                                    class="fa fa-trash-can fa-2x pl-6 cursor-pointer"
-                                ></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- SECOND ONE -->
-                    <div
-                        class="px-4 py-6 flex text-black w-full flex"
-                        id="deleteTwo"
-                    >
-                        <div class="w-2/6 font-bold flex items-center w-6/6">
-                            <div class="flex w-1/2">
-                                <img
-                                    src="wordpress.png"
-                                    class="w-8 rounded-full"
-                                />
-                                <div class="flex-wrap pl-2">
-                                    <div>Ina Hogan</div>
-                                    <div class="text-xs opacity-50">
-                                        email@emil.com
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="w-1/2 flex justify-end pr-6">
-                                <div
-                                    class="bg-blue-500 w-32 px-4 py-1 rounded-lg text-white text-center font-normal"
-                                >
-                                    Admin
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="w-1/6 text-sm flex justify-center items-center"
-                        >
-                            24, Oct, 2015
-                        </div>
-                        <div
-                            class="w-1/6 text-sm flex justify-center items-center"
-                        >
-                            Team Lead
-                        </div>
-                        <div
-                            class="w-2/6 text-sm flex justify-center items-center opacity-50"
-                        >
-                            <i
-                                class="fa fa-pen-to-square fa-2x cursor-pointer"
-                            ></i>
-                            <button onclick="{deleteTwo()}">
-                                <i
-                                    class="fa fa-trash-can fa-2x pl-6 cursor-pointer"
-                                ></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- THIRD ONE -->
-                    <div
-                        class="px-4 py-6 flex text-black w-full flex"
-                        id="deleteThree"
-                    >
-                        <div class="w-2/6 font-bold flex items-center w-6/6">
-                            <div class="flex w-1/2">
-                                <img
-                                    src="https://www.istockphoto.com/photo/male-lion-resting-on-a-rock-gm1333977253-416278970"
-                                    class="w-8 rounded-full"
-                                />
-                                <div class="flex-wrap pl-2">
-                                    <div>Devin Harmon</div>
-                                    <div class="text-xs opacity-50">
-                                        email@emil.com
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="w-1/2 flex justify-end pr-6">
-                                <div
-                                    class="bg-green-500 w-32 px-4 py-1 rounded-lg text-white text-center font-normal"
-                                >
-                                    HR Admin
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="w-1/6 text-sm flex justify-center items-center"
-                        >
-                            18 Dec, 2015
-                        </div>
-                        <div
-                            class="w-1/6 text-sm flex justify-center items-center"
-                        >
-                            HR
-                        </div>
-                        <div
-                            class="w-2/6 text-sm flex justify-center items-center opacity-50"
-                        >
-                            <i
-                                class="fa fa-pen-to-square fa-2x cursor-pointer"
-                            ></i>
-                            <button onclick="{deleteThree()}">
-                                <i
-                                    class="fa fa-trash-can fa-2x pl-6 cursor-pointer"
-                                ></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- THIRD ONE -->
-                    <div
-                        class="px-4 py-6 flex text-black w-full flex"
-                        id="deleteThree"
-                    >
-                        <div class="w-2/6 font-bold flex items-center w-6/6">
-                            <div class="flex w-1/2">
-                                <img
-                                    src="wordpress.png"
-                                    class="w-8 rounded-full"
-                                />
-                                <div class="flex-wrap pl-2">
-                                    <div>Lena Pae</div>
-                                    <div class="text-xs opacity-50">
-                                        email@emil.com
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="w-1/2 flex justify-end pr-6">
-                                <div
-                                    class="bg-gray-400 text-black opacity-50 w-32 px-4 py-1 rounded-lg text-white text-center font-normal"
-                                >
-                                    Employee
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="w-1/6 text-sm flex justify-center items-center"
-                        >
-                            18 Dec, 2015
-                        </div>
-                        <div
-                            class="w-1/6 text-sm flex justify-center items-center"
-                        >
-                            App Designer
-                        </div>
-                        <div
-                            class="w-2/6 text-sm flex justify-center items-center opacity-50"
-                        >
-                            <i
-                                class="fa fa-pen-to-square fa-2x cursor-pointer"
-                            ></i>
-                            <button onclick="{deleteFour()}">
-                                <i
-                                    class="fa fa-trash-can fa-2x pl-6 cursor-pointer"
-                                ></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- FOURTH ONE -->
-                    <div
-                        class="px-4 py-6 flex text-black w-full flex"
-                        id="deleteFour"
-                    >
-                        <div class="w-2/6 font-bold flex items-center w-6/6">
-                            <div class="flex w-1/2">
-                                <img
-                                    src="wordpress.png"
-                                    class="w-8 rounded-full"
-                                />
-                                <div class="flex-wrap pl-2">
-                                    <div>Eula Horton</div>
-                                    <div class="text-xs opacity-50">
-                                        email@emil.com
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="w-1/2 flex justify-end pr-6">
-                                <div
-                                    class="bg-red-700 px-4 w-33 text-center py-1 rounded-lg text-white font-normal"
-                                >
-                                    Super Admin
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="w-1/6 text-sm flex justify-center items-center"
-                        >
-                            18 Dec, 2015
-                        </div>
-                        <div
-                            class="w-1/6 text-sm flex justify-center items-center"
-                        >
-                            CEO and Founder
-                        </div>
-                        <div
-                            class="w-2/6 text-sm flex justify-center items-center opacity-50"
-                        >
-                            <i
-                                class="fa fa-pen-to-square fa-2x cursor-pointer"
-                            ></i>
-                            <button onclick="{deleteFour()}">
+                            <button @click="userdelete(user.id)">
                                 <i
                                     class="fa fa-trash-can fa-2x pl-6 cursor-pointer"
                                 ></i>
@@ -517,8 +318,8 @@
                             </div>
                             <div class="md:w-1/3 pl-3">
                                 <input
-                                    type=""
-                                    name=""
+                                    type="text"
+                                    v-model="form.mobile_number"
                                     class="w-full border rounded p-1"
                                     placeholder="Mobile No*"
                                 />
@@ -530,9 +331,9 @@
                                     v-model="form.role"
                                 >
                                     <option>Select Role type</option>
-                                    <option>Role type 1</option>
-                                    <option>Role type 2</option>
-                                    <option>Role type 3</option>
+                                    <option>Super Admin</option>
+                                    <option>Admin</option>
+                                    <option>Employee</option>
                                 </select>
                             </div>
                         </div>
@@ -540,16 +341,16 @@
                         <div class="flex w-full pt-4">
                             <div class="w-full md:w-1/3">
                                 <input
-                                    type=""
-                                    name=""
+                                    type="text"
+                                    v-model="form.username"
                                     class="w-full border rounded p-1"
                                     placeholder="Username*"
                                 />
                             </div>
                             <div class="md:w-1/3 pl-3">
                                 <input
-                                    type=""
-                                    name=""
+                                    type="password"
+                                    v-model="form.password"
                                     class="w-full border rounded p-1"
                                     placeholder="Password*"
                                 />
@@ -557,8 +358,8 @@
 
                             <div class="md:w-1/3 pl-3 flex items-center">
                                 <input
-                                    type=""
-                                    name=""
+                                    type="password"
+                                    v-model="form.confirm_pass"
                                     class="w-full border rounded p-1"
                                     placeholder="Confirm Password*"
                                 />
@@ -600,9 +401,8 @@
                                     class="w-1/5 text-sm flex justify-center items-center"
                                 >
                                     <input
+                                        value="read"
                                         type="checkbox"
-                                        checked
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
@@ -610,9 +410,8 @@
                                     class="w-1/5 text-sm flex justify-center items-center"
                                 >
                                     <input
+                                        value="write"
                                         type="checkbox"
-                                        checked
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
@@ -620,18 +419,18 @@
                                     class="w-1/5 text-sm flex justify-center items-center"
                                 >
                                     <input
+                                        value="delete"
                                         type="checkbox"
-                                        checked
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
                             </div>
                             <hr />
 
-                            <!-- SECOND ONE -->
+                            <!--SECOND ONE -->
                             <div class="px-4 py-6 flex text-black w-full flex">
                                 <div class="w-2/5 font-bold flex items-center">
+                                    <input type="text" hidden :value="admin" />
                                     <div class="flex opacity-50">Admin</div>
                                 </div>
                                 <div
@@ -639,8 +438,6 @@
                                 >
                                     <input
                                         type="checkbox"
-                                        checked
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
@@ -649,7 +446,6 @@
                                 >
                                     <input
                                         type="checkbox"
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
@@ -658,7 +454,6 @@
                                 >
                                     <input
                                         type="checkbox"
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
@@ -675,8 +470,6 @@
                                 >
                                     <input
                                         type="checkbox"
-                                        checked
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
@@ -685,7 +478,6 @@
                                 >
                                     <input
                                         type="checkbox"
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
@@ -694,7 +486,6 @@
                                 >
                                     <input
                                         type="checkbox"
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
@@ -711,8 +502,6 @@
                                 >
                                     <input
                                         type="checkbox"
-                                        checked
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
@@ -721,8 +510,6 @@
                                 >
                                     <input
                                         type="checkbox"
-                                        checked
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
@@ -731,12 +518,11 @@
                                 >
                                     <input
                                         type="checkbox"
-                                        checked
-                                        name=""
                                         class="cursor-pointer"
                                     />
                                 </div>
                             </div>
+                            -->
                             <hr />
                         </div>
                         <div class="flex justify-end pt-8 space-x-5">
@@ -778,30 +564,54 @@ export default {
                 mobile_number: "",
                 role: "",
                 password: "",
-                permission:[]
+                confirm_pass: "",
+                permission: [],
             },
+            super_admin: "super admin",
+            admin: "Admin",
+            Hr_admin: "Hr Admin",
+            employee: "employee",
+            users: [],
         };
     },
     mounted() {
         this.read();
     },
     methods: {
+        validate() {
+            if (this.form.password == this.form.confirm_pass) {
+                return true;
+            } else {
+                return false;
+            }
+        },
         create(e) {
-            e.preventDefault()
-            console.log(this.form);
-            // axios.post();
+            e.preventDefault();
+            if (this.validate() === true) {
+                axios
+                    .post("http://localhost:8000/api/user", this.form)
+                    .then((res) => {
+                        if (res.data.message == "created successfully") {
+                            alert(res.data.message);
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
         },
         read() {
             axios.get("http://localhost:8000/api/user").then((res) => {
-                console.log(res.data);
+                this.users = res.data;
             });
         },
         startEdit() {},
         update(id) {
             axios.put();
         },
-        delete(id) {
-            axios.delete();
+        userdelete(id) {
+            console.log(id)
+            //axios.delete(`http://localhost:8000/api/user/${id}`);
         },
     },
 };
